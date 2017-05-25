@@ -123,7 +123,7 @@ Ext.define('Ext.grid.CellContext', {
             oldRecord = me.record,
             count;
         
-        if (row !== undefined) {
+        if (row !== undefined || row != null) {
             // Row index passed, < 0 meaning count from the tail (-1 is the last, etc)
             if (typeof row === 'number') {
                 count = dataSource.getCount();

@@ -2363,7 +2363,9 @@ Ext.define('Ext.view.Table', {
             // Tabbing in from the neighbouring TableView (eg, locking).
             // Go to column zero, same record
             else if (fromComponent.isTableView) {
-                focusPosition = new Ext.grid.CellContext(me).setPosition(fromComponent.lastFocused.record, 0);
+                if (fromComponent.lastFocused) {    // bugfix: fromComponent.lastFocused may be undefined.
+                    focusPosition = new Ext.grid.CellContext(me).setPosition(fromComponent.lastFocused.record, 0);
+                }
             }
         }
 
